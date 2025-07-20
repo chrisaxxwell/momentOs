@@ -1,42 +1,120 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+   --background: #ffffff;
+   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+   :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+   }
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+   max-width: 100vw;
+   overflow: hidden;
+}
+
+img {
+   pointer-events: none;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   color: var(--foreground);
+   background: var(--background);
+   font-family: var(--font-inter), Helvetica, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   outline: none;
+}
+
+input,
+textarea {
+   font-family: inherit;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+   color: inherit;
+   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+#display {
+   overflow: hidden;
+   user-select: none;
+}
+
+#background {
+   width: 100%;
+   height: 100vh;
+   object-fit: cover;
+}
+
+.blur {
+   background-color: #ffffff2d;
+   border: solid 1px #ffffff13;
+   backdrop-filter: blur(8px);
+}
+
+.initialize>div {
+   position: fixed;
+   z-index: 2;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   width: fit-content;
+   height: fit-content;
+   margin: auto;
+   gap: 10px;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+::selection {
+   background-color: #ffffff38;
+}
+
+.initialize>div>img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+}
+
+.initialize>div>p {
+   font-size: 16px;
+   font-weight: 600;
+}
+
+input::placeholder {
+   color: #ffffff60;
+}
+
+.initialize>div>input {
+   padding: 12px 20px;
+   border-radius: 30px;
+   border: none;
+   font-size: 16px;
+   color: #ffffffd3;
+   margin-top: 20px;
+}
+
+/* MENUBAR */
+#menu-bar {
+   position: fixed;
+   top: 20px;
+   left: 0;
+   right: 0;
+   width: fit-content;
+   padding: 10px 20px;
+   border-radius: 30px;
+   margin: auto;
+   font-size: 14px;
 }
